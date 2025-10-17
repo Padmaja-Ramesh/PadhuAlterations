@@ -1,0 +1,21 @@
+h1 {
+  text-align: center;
+}
+
+/* nav {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  font-size: 50px;
+} */
+.active {
+  font-size: larger;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: brown;
+}
+
+.inactive {
+  font-size: medium;
+  font-family: 'Times New Roman', Times, serif;
+  color: aquamarine;
+}

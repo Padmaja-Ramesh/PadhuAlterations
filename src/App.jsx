@@ -1,15 +1,20 @@
+import { Route, Routes } from 'react-router';
 import './App.css';
+import Header from './shared/Header';
+import About from './pages/About';
+import Home from './pages/Home';
+import Login from './pages/Login';
 
 function App() {
   return (
-    <>
-      <h1>Welcome to Padhu Alternations</h1>
-      <p>
-        Online and On-Site Tailoring Custom Alterations for Men & Women Get your
-        clothing altered quickly and easily by our expert tailors &
-        seamstresses,with only a week turn around.
-      </p>
-    </>
+    <div class="grid-container">
+      <Header></Header>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+      </Routes>
+    </div>
   );
 }
 
