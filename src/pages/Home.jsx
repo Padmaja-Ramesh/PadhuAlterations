@@ -13,12 +13,13 @@ function Home() {
     <>
       <div className="item3">
         <div>
-          <h1>List of Alterations</h1>
+          <h2>List of Alterations</h2>
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {alterations.map((a) => {
+          {alterations.map((a, index) => {
             return (
-              <grid
+              <div
+                key={index}
                 style={{
                   display: 'flex',
                   flexWrap: 'wrap',
@@ -26,7 +27,7 @@ function Home() {
                 }}
               >
                 <h4>{a}</h4>
-              </grid>
+              </div>
             );
           })}
         </div>
