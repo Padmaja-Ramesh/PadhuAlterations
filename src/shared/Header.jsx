@@ -6,11 +6,28 @@ import { useNavigate } from 'react-router-dom';
 function Header() {
   const navigate = useNavigate();
   const service = [
-    'Quality Guaranteed',
-    'Secure Checkout',
-    'Eco Friendly',
-    'Fast Shipping',
+    {
+      image:
+        '//tmtailor.com/cdn/shop/files/TMTailor-Icon-Guaranteed_1.svg?v=1729982256',
+      text: 'Quality Guaranteed',
+    },
+    {
+      image:
+        '//tmtailor.com/cdn/shop/files/TMTailor-Icon-SecureCheckout_1.svg?v=1729982340',
+      text: 'Secure Checkout',
+    },
+    {
+      image:
+        '//tmtailor.com/cdn/shop/files/TMTailor-Icon-EcoFriendly_1.svg?v=1729982372',
+      text: 'Eco Friendly',
+    },
+    {
+      image:
+        '//tmtailor.com/cdn/shop/files/TMTailor-Icon-FastShipping_1.svg?v=1729982401',
+      text: 'Fast Shipping',
+    },
   ];
+
   const [userName, setUserName] = useState(
     localStorage.getItem('userName') || ''
   );
@@ -119,9 +136,18 @@ function Header() {
         </nav>
       </div>
       <div className="item4">
-        {service.map((item, index) => {
-          return <div key={index}>{item}</div>;
-        })}
+        {service.map((item, index) => (
+          <div className="icon-box" key={index}>
+            {item.image && (
+              <img
+                src={item.image}
+                alt={item.text || 'icon'}
+                className="icon-image"
+              />
+            )}
+            <p className="icon-text">{item.text}</p>
+          </div>
+        ))}
       </div>
     </>
   );
