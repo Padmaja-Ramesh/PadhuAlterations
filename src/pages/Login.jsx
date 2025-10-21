@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getRecords } from '../utils/db';
+import { getRecords } from '../utils/users';
 import styles from './Login.module.css';
 
 export default function Login() {

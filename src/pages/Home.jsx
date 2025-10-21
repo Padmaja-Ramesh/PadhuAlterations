@@ -1,21 +1,23 @@
+import Services from '../features/Services';
+
 function Home() {
-  let alterations = [
-    'Pant Alterations',
-    'Outwear Alterations',
-    'Shirt Alterations',
-    'SuitJacket Alterations',
-    'Skirt Alterations',
-    'Custom Alterations',
-    'Shorts Alterations',
-    'Leather Alterations',
-  ];
+  // let alterations = [
+  //   'Pant Alterations',
+  //   'Outwear Alterations',
+  //   'Shirt Alterations',
+  //   'SuitJacket Alterations',
+  //   'Skirt Alterations',
+  //   'Custom Alterations',
+  //   'Shorts Alterations',
+  //   'Leather Alterations',
+  // ];
   return (
     <>
       <div className="item3">
         <div>
           <h2>List of Alterations</h2>
         </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {/* <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           {alterations.map((a, index) => {
             return (
               <div
@@ -30,7 +32,8 @@ function Home() {
               </div>
             );
           })}
-        </div>
+        </div> */}
+        <Services />
       </div>
     </>
   );

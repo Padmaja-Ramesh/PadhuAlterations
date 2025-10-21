@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signupUser } from '../utils/db';
+import { signupUser } from '../utils/users';
 import styles from './Login.module.css';
 
 export default function Signup() {
