@@ -8,6 +8,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import Signup from './pages/Signup';
 import ServiceDetails from './features/ServiceDetails';
 import { useEffect, useState } from 'react';
+import Contact from './pages/Contact';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(
@@ -35,7 +36,7 @@ function App() {
         <Route path="/home" element={loggedIn ? <Home /> : <Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/forgot-password" element={<ForgotPassword />}></Route>
-
+        <Route path="/contact" element={<Contact />}></Route>
         <Route path="/services/:category" element={<ServiceDetails />} />
         <Route path="/*" element={<Login />}></Route>
       </Routes>

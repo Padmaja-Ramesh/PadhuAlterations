@@ -20,20 +20,6 @@ h2 {
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: #542e2e;
 }
-.active::after {
-  content: ''; /* Required for pseudo-elements */
-  display: block; /* Or inline-block */
-  position: absolute; /* For precise positioning */
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 50px solid #007bff; /* Blue downward-pointing triangle */
-  /* Adjust top/left/right/bottom for desired position */
-  top: 100%; /* Positions the triangle just below the parent element */
-  left: 50%;
-  transform: translateX(-50%); /* Centers the triangle horizontally */
-}
 
 .inactive {
   font-size: 24px;
