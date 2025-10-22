@@ -2,8 +2,38 @@ import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getCart } from '../utils/services';
 
 function Header() {
+  const [loggedIn, setLoggedIn] = useState(
+    localStorage.getItem('loggedIn') === 'true' ? true : false
+  );
+
+  const [userName, setUserName] = useState(
+    localStorage.getItem('userName') || ''
+  );
+
+  const [cartItem, setCartItem] = useState(getCart() || 0);
+
+  useEffect(() => {
+    function checkModeChange() {
+      console.log('storage changed');
+      const loginStatus = window.localStorage.getItem('loggedIn');
+      const loginName = window.localStorage.getItem('userName');
+      const cartVal = window.localStorage.getItem('cart');
+      setLoggedIn(loginStatus);
+      setUserName(loginName);
+      setCartItem(cartVal);
+    }
+
+    checkModeChange();
+    window.addEventListener('storage', checkModeChange);
+
+    return () => {
+      window.removeEventListener('storage', checkModeChange);
+    };
+  }, []);
+
   const navigate = useNavigate();
   const service = [
     {
@@ -28,23 +58,14 @@ function Header() {
     },
   ];
 
-  const [userName, setUserName] = useState(
-    localStorage.getItem('userName') || ''
-  );
-
-  const [loginStatus, setLoginStatus] = useState(
-    localStorage.getItem('loggedIn') || false
-  );
-
   useEffect(() => {
-    if (!loginStatus) {
+    if (!loggedIn) {
       setUserName('');
     }
-  }, [loginStatus]);
+  }, [loggedIn]);
   const handleLogout = () => {
     localStorage.clear();
     setUserName('');
-    setLoginStatus(false);
 
     window.dispatchEvent(new Event('logout'));
     navigate('/');
@@ -63,11 +84,12 @@ function Header() {
         <h1>Padhu&apos;s Alterations</h1>
 
         {/* Username display when logged in */}
-        {userName ? (
+        {loggedIn ? (
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ fontWeight: 'bold', color: '#333' }}>
               Hello, {userName}
             </span>
+            {cartItem > 0 ? <span className="cart">{cartItem}</span> : null}
             <button
               onClick={handleLogout}
               style={{
@@ -97,39 +119,35 @@ function Header() {
       <div className="item2">
         <nav>
           <NavLink
-            to={'/'}
-            className={(isActive) =>
+            to={'/home'}
+            className={({ isActive }) =>
               isActive ? styles.active : styles.inactive
             }
-            style={{ margin: '20px', display: 'flex' }}
           >
             Home
           </NavLink>
           <NavLink
             to={'/about'}
-            className={(isActive) =>
+            className={({ isActive }) =>
               isActive ? styles.active : styles.inactive
             }
-            style={{ margin: '20px', display: 'flex' }}
           >
             About
           </NavLink>
           <NavLink
             to={'/contact'}
-            className={(isActive) =>
+            className={({ isActive }) =>
               isActive ? styles.active : styles.inactive
             }
-            style={{ margin: '20px', display: 'flex' }}
           >
             Contact
           </NavLink>
 
           <NavLink
             to={'/search'}
-            className={(isActive) =>
+            className={({ isActive }) =>
               isActive ? styles.active : styles.inactive
             }
-            style={{ margin: '20px', display: 'flex' }}
           >
             Search
           </NavLink>

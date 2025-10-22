@@ -1,5 +1,12 @@
 h1 {
   text-align: center;
+  color: #764a4a;
+}
+
+h2 {
+  color: #907575;
+  text-align: left;
+  margin: 10px auto;
 }
 
 /* nav {
@@ -9,15 +16,29 @@ h1 {
   font-size: 50px;
 } */
 .active {
-  font-size: larger;
+  font-size: 24px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color: brown;
+  color: #542e2e;
+}
+.active::after {
+  content: ''; /* Required for pseudo-elements */
+  display: block; /* Or inline-block */
+  position: absolute; /* For precise positioning */
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 50px solid #007bff; /* Blue downward-pointing triangle */
+  /* Adjust top/left/right/bottom for desired position */
+  top: 100%; /* Positions the triangle just below the parent element */
+  left: 50%;
+  transform: translateX(-50%); /* Centers the triangle horizontally */
 }
 
 .inactive {
-  font-size: medium;
+  font-size: 24px;
   font-family: 'Times New Roman', Times, serif;
-  color: aquamarine;
+  color: #946d6d;
 }
 
 .icon-box {
@@ -37,4 +58,22 @@ h1 {
   font-weight: 600;
   color: #333;
   font-size: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  /* border: 2px solid rgb(96 139 168);
+  border-radius: 5px; */
+  padding: 10px;
+  display: block;
+  margin: 10px 15px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
 }

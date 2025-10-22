@@ -1,5 +1,6 @@
 body {
   display: contents;
+  background-color: #eef2f6;
 }
 
 .grid-container {
@@ -9,12 +10,12 @@ body {
     'menu main main main main right'
     'menu footer footer footer footer footer';
   grid-gap: 10px;
-  background-color: #2196f3;
+  /* background-color: #eef2f6; */
   padding: 10px;
 }
 
 .grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  /* background-color: rgba(255, 255, 255, 0.8); */
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
@@ -22,9 +23,11 @@ body {
 
 .item1 {
   grid-area: header;
+  border-bottom: 3px solid #161e25;
 }
 .item2 {
   grid-area: menu;
+  border-right: 3px solid #161e25;
 }
 .item3 {
   grid-area: main;
@@ -34,4 +37,15 @@ body {
 }
 .item5 {
   grid-area: footer;
+}
+
+h4 {
+  color: #161e25;
+  margin: 5px auto;
+}
+
+section.css-15y4xrm {
+  border: 1px solid #608ca8;
+  border-radius: 8px;
+  cursor: pointer;
 }

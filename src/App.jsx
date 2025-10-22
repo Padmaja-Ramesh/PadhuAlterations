@@ -7,9 +7,26 @@ import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import Signup from './pages/Signup';
 import ServiceDetails from './features/ServiceDetails';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const loggedIn = localStorage.getItem('loggedIn') === 'true';
+  const [loggedIn, setLoggedIn] = useState(
+    localStorage.getItem('loggedIn') === 'true' ? true : false
+  );
+
+  useEffect(() => {
+    function checkModeChange() {
+      const loginStatus = window.localStorage.getItem('loggedIn');
+      setLoggedIn(loginStatus);
+    }
+
+    checkModeChange();
+    window.addEventListener('storage', checkModeChange);
+
+    return () => {
+      window.removeEventListener('storage', checkModeChange);
+    };
+  });
   return (
     <div className="grid-container">
       <Header></Header>

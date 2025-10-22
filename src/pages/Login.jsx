@@ -37,24 +37,32 @@ export default function Login() {
   };
 
   return (
-    <div className={styles.loginContainer}>
+    <div className={`${styles.loginContainer} item3`}>
       <form onSubmit={handleLogin} className={styles.loginForm}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
-        {error && <p>{error}</p>}
-        <button type="submit">Login</button>
+        <h2>Login</h2>
+        <div className={styles.inputGroup}>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div className={styles.inputGroup}>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            required
+          />
+        </div>
+        <button type="submit">Log In</button>
+        {error ? <p>{error}</p> : null}
+
         <p className={styles.links}>
           <a href="/signup">Create Account</a> |{' '}
           <a href="/forgot-password">Forgot Password?</a>

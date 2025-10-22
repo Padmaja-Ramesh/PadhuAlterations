@@ -30,3 +30,12 @@ export const getServices = async () => {
     services: grouped[category],
   }));
 };
+
+export const updateCart = (cart) => {
+  window.localStorage.setItem('cart', cart);
+  window.dispatchEvent(new Event('cart'));
+};
+
+export const getCart = () => {
+  return window.localStorage.getItem('cart');
+};
