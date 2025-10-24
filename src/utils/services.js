@@ -2,12 +2,24 @@ const url = `https://api.airtable.com/v0/${import.meta.env.VITE_BASE_ID}/${impor
 const token = `Bearer ${import.meta.env.VITE_PAT}`;
 
 export const getRecords = async () => {
-  const resp = await fetch(url, {
-    method: 'GET',
-    headers: { Authorization: token },
-  });
-  const data = await resp.json();
-  return data.records || [];
+  try {
+    const resp = await fetch(url, {
+      method: 'GET',
+      headers: { Authorization: token },
+    });
+
+    if (!resp.ok) {
+      const errorData = await resp.json();
+      console.error('Airtable API error:', errorData);
+      return [];
+    }
+
+    const data = await resp.json();
+    return data.records || [];
+  } catch (err) {
+    console.error('Network or fetch error:', err);
+    return [];
+  }
 };
 
 export const getServices = async () => {
@@ -32,10 +44,13 @@ export const getServices = async () => {
 };
 
 export const updateCart = (cart) => {
-  window.localStorage.setItem('cart', cart);
-  window.dispatchEvent(new Event('cart'));
+  window.localStorage.setItem(
+    'cart',
+    typeof cart === 'string' ? cart : JSON.stringify(cart)
+  );
+  window.dispatchEvent(new Event('cartUpdated')); // <-- same event name as Header
 };
 
 export const getCart = () => {
-  return window.localStorage.getItem('cart');
+  return window.localStorage.getItem('cartUpdated');
 };

@@ -10,7 +10,6 @@ export const getRecords = async () => {
     },
   });
   const data = await resp.json();
-  console.log(data);
   return data.records || [];
 };
 

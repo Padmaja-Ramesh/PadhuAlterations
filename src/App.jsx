@@ -9,6 +9,7 @@ import Signup from './pages/Signup';
 import ServiceDetails from './features/ServiceDetails';
 import { useEffect, useState } from 'react';
 import Contact from './pages/Contact';
+import Cart from './pages/Cart';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(
@@ -38,6 +39,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/services/:category" element={<ServiceDetails />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/*" element={<Login />}></Route>
       </Routes>
     </div>

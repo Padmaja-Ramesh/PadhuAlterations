@@ -12,12 +12,28 @@ function Header() {
   const [userName, setUserName] = useState(
     localStorage.getItem('userName') || ''
   );
+  const [cartCount, setCartCount] = useState(0);
 
   const [cartItem, setCartItem] = useState(getCart() || 0);
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem('cart') || '[]');
+    setCartCount(savedCart.length);
+
+    // Listen for cart updates from ServiceDetails
+    const handleCartUpdate = () => {
+      const updatedCart = JSON.parse(localStorage.getItem('cart') || '[]');
+      setCartCount(updatedCart.length);
+    };
+
+    window.addEventListener('cartUpdated', handleCartUpdate);
+
+    return () => {
+      window.removeEventListener('cartUpdated', handleCartUpdate);
+    };
+  }, []);
 
   useEffect(() => {
     function checkModeChange() {
-      console.log('storage changed');
       const loginStatus = window.localStorage.getItem('loggedIn');
       const loginName = window.localStorage.getItem('userName');
       const cartVal = window.localStorage.getItem('cart');
@@ -90,6 +106,9 @@ function Header() {
               Hello, {userName}
             </span>
             {cartItem > 0 ? <span className="cart">{cartItem}</span> : null}
+            <NavLink to="/cart" className={styles.link}>
+              🛒 Cart ({cartCount > 0 ? cartCount : ''})
+            </NavLink>
             <button
               onClick={handleLogout}
               style={{
