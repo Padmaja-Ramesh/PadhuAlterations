@@ -40,8 +40,6 @@ The app is lightweight, easy to maintain, and ideal for small tailoring or alter
 | ----------------------------------- | ------------------------------------------- | 
 | `react-router-dom`                  | Handles routing between pages               | 
 | `@mui/material`                     | UI component library for responsive styling | 
-| `@emotion/react`, `@emotion/styled` | Required peer dependencies for MUI          |
-| `axios`                             | Handles HTTP requests to the Airtable API   | 
 | `dotenv`                            | Environment variable management             | 
 
 ---
