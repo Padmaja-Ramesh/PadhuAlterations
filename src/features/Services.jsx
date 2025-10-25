@@ -24,21 +24,19 @@ export default function Services() {
   return (
     <div style={{ display: 'flex', gap: '20px' }}>
       {services.map((service) => (
-        <>
-          <Box
-            component="section"
-            sx={{ p: 2, border: '1px dashed grey' }}
-            style={{ margin: '5px' }}
-            key={service.category}
-            onClick={() =>
-              navigate(
-                `/services/${encodeURIComponent(service.category.trim().replaceAll(' ', '-'))}`
-              )
-            }
-          >
-            <h4>{service.category}</h4>
-          </Box>
-        </>
+        <Box
+          component="section"
+          sx={{ p: 2, border: '1px dashed grey' }}
+          style={{ margin: '5px' }}
+          key={service.category}
+          onClick={() =>
+            navigate(
+              `/services/${encodeURIComponent(service.category.trim().replaceAll(' ', '-'))}`
+            )
+          }
+        >
+          <h4>{service.category}</h4>
+        </Box>
       ))}
     </div>
   );

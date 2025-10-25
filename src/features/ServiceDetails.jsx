@@ -49,7 +49,7 @@ export default function ServiceDetails() {
         borderTop: '1px solid #345',
       }}
     >
-      <h2>{category}</h2>
+      <h3>{category}</h3>
 
       {services.map((s, idx) => (
         <Box

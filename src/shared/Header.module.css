@@ -17,13 +17,13 @@ h2 {
 } */
 .active {
   font-size: 24px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: #542e2e;
 }
 
 .inactive {
   font-size: 24px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: #946d6d;
 }
 

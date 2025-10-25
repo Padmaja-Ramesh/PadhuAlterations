@@ -54,3 +54,19 @@ export const updateCart = (cart) => {
 export const getCart = () => {
   return window.localStorage.getItem('cartUpdated');
 };
+
+export const updateUser = (user) => {
+  window.localStorage.setItem(
+    'userName',
+    typeof user?.userName === 'string' ? user?.userName : ''
+  );
+  window.localStorage.setItem('loggedIn', user?.loggedIn ? true : false);
+  window.dispatchEvent(new Event('userUpdated')); // <-- same event name as Header
+};
+
+export const getUser = () => {
+  return {
+    userName: window.localStorage.getItem('userName'),
+    loggedIn: window.localStorage.getItem('loggedIn'),
+  };
+};

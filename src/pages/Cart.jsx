@@ -48,7 +48,7 @@ export default function Cart() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h2>Your Cart</h2>
+      <h3>Your Cart</h3>
 
       {cart.length === 0 ? (
         <p>No items in cart.</p>

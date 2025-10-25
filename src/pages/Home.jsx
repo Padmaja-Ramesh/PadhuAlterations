@@ -6,7 +6,7 @@ function Home() {
   return (
     <div className="item3">
       <div>
-        <h2>List of Alterations</h2>
+        <h3>List of Alterations</h3>
       </div>
       <Services />
       <ServiceDetails />

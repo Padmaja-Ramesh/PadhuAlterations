@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getCart } from '../utils/services';
+import { getCart, getUser } from '../utils/services';
 
 function Header() {
   const [loggedIn, setLoggedIn] = useState(
@@ -37,9 +37,9 @@ function Header() {
       const loginStatus = window.localStorage.getItem('loggedIn');
       const loginName = window.localStorage.getItem('userName');
       const cartVal = window.localStorage.getItem('cart');
-      setLoggedIn(loginStatus);
-      setUserName(loginName);
-      setCartItem(cartVal);
+      setLoggedIn(loginStatus || false);
+      setUserName(loginName || '');
+      setCartItem(cartVal || 0);
     }
 
     checkModeChange();
@@ -48,7 +48,7 @@ function Header() {
     return () => {
       window.removeEventListener('storage', checkModeChange);
     };
-  }, []);
+  });
 
   const navigate = useNavigate();
   const service = [
@@ -77,11 +77,16 @@ function Header() {
   useEffect(() => {
     if (!loggedIn) {
       setUserName('');
+      setUserName('');
+      setCartCount(0);
+      setLoggedIn(false);
     }
   }, [loggedIn]);
   const handleLogout = () => {
     localStorage.clear();
     setUserName('');
+    setCartCount(0);
+    setLoggedIn(false);
 
     window.dispatchEvent(new Event('logout'));
     navigate('/');

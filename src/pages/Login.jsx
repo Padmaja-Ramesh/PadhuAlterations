@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getRecords } from '../utils/users';
 import styles from './Login.module.css';
+import { updateUser } from '../utils/services';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -25,6 +26,7 @@ export default function Login() {
         localStorage.setItem('userEmail', user.fields.email);
         localStorage.setItem('loggedIn', 'true');
         localStorage.setItem('userName', user.fields.username || 'User');
+        updateUser({ userName: user.fields.username, loggedIn: true });
         window.dispatchEvent(new Event('login'));
         navigate('/home');
       } else {
