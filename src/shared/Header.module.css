@@ -27,25 +27,6 @@ h2 {
   color: #946d6d;
 }
 
-.icon-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-}
-
-.icon-image {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 10px;
-}
-
-.icon-text {
-  font-weight: 600;
-  color: #333;
-  font-size: 1rem;
-}
-
 nav a {
   text-decoration: none;
   color: black;

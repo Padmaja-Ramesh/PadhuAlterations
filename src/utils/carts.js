@@ -70,8 +70,6 @@ export const addToCartDB = async (cartItems, userEmail) => {
         body: JSON.stringify({ records: recordsToCreate }),
       });
     }
-
-    console.log('Cart synced to Airtable ');
   } catch (error) {
     console.error('Error syncing cart:', error);
   }
@@ -141,8 +139,6 @@ export const syncCartToDB = async (cartItems) => {
         body: JSON.stringify({ records: recordsToCreate }),
       });
     }
-
-    console.log('Cart synced to Airtable ');
   } catch (err) {
     console.error('Error syncing cart:', err);
   }

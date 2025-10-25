@@ -107,7 +107,7 @@ function Header() {
             </span>
             {cartItem > 0 ? <span className="cart">{cartItem}</span> : null}
             <NavLink to="/cart" className={styles.link}>
-              🛒 Cart ({cartCount > 0 ? cartCount : ''})
+              🛒 {cartCount > 0 ? '(' + cartCount + ')' : ''}
             </NavLink>
             <button
               onClick={handleLogout}
@@ -160,15 +160,6 @@ function Header() {
             }
           >
             Contact
-          </NavLink>
-
-          <NavLink
-            to={'/search'}
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.inactive
-            }
-          >
-            Search
           </NavLink>
         </nav>
       </div>

@@ -56,20 +56,48 @@ export default function Cart() {
         cart.map((item, idx) => (
           <Box
             key={idx}
-            sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: 2,
+              border: '1px solid #ddd',
+              p: 2,
+              borderRadius: '8px',
+            }}
           >
-            <div>
-              <strong>{item.name}</strong> — ${item.price} <br />
-              <small>{new Date(item.addedAt).toLocaleString()}</small>
+            <div style={{ textAlign: 'left', display: 'block' }}>
+              <strong>{item.name}</strong> — ${item.price}
+              <small style={{ display: 'block' }}>
+                {new Date(item.addedAt).toLocaleString()}
+              </small>
             </div>
-            <Button variant="outlined" onClick={() => removeFromCart(idx)}>
-              Remove
-            </Button>
+            <div>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => removeFromCart(idx)}
+              >
+                Remove
+              </Button>
+            </div>
           </Box>
         ))
       )}
-
-      <h3>Total: ${total}</h3>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          flexDirection: 'row-reverse',
+          alignItems: 'center',
+          mb: 2,
+          border: '1px solid #ddd',
+          p: 2,
+          borderRadius: '8px',
+        }}
+      >
+        <strong style={{ textAlign: 'right' }}>Total: ${total}</strong>
+      </Box>
     </div>
   );
 }

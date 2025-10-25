@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getServices } from '../utils/services';
 import Box from '@mui/material/Box';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Services() {
   const navigate = useNavigate();
@@ -22,19 +22,23 @@ export default function Services() {
   }, []);
 
   return (
-    <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', gap: '20px' }}>
       {services.map((service) => (
-        <Box
-          component="section"
-          sx={{ p: 2, border: '1px dashed grey' }}
-          style={{ margin: '5px' }}
-          key={service.category}
-          onClick={() =>
-            navigate(`/services/${encodeURIComponent(service.category)}`)
-          }
-        >
-          <h4>{service.category}</h4>
-        </Box>
+        <>
+          <Box
+            component="section"
+            sx={{ p: 2, border: '1px dashed grey' }}
+            style={{ margin: '5px' }}
+            key={service.category}
+            onClick={() =>
+              navigate(
+                `/services/${encodeURIComponent(service.category.trim().replaceAll(' ', '-'))}`
+              )
+            }
+          >
+            <h4>{service.category}</h4>
+          </Box>
+        </>
       ))}
     </div>
   );

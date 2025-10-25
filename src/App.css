@@ -18,22 +18,26 @@ body {
   /* background-color: rgba(255, 255, 255, 0.8); */
   text-align: center;
   padding: 20px 0;
-  font-size: 30px;
+  font-size: 1.4rem;
 }
 
 .item1 {
   grid-area: header;
-  border-bottom: 3px solid #161e25;
+  border-bottom: 2px solid #161e25;
 }
 .item2 {
   grid-area: menu;
-  border-right: 3px solid #161e25;
+  border-right: 2px solid #161e25;
 }
 .item3 {
   grid-area: main;
 }
 .item4 {
   grid-area: right;
+  border-left: 2px solid #161e25;
+  color: #193047;
+  margin: 0 auto;
+  padding: 20px 10px !important;
 }
 .item5 {
   grid-area: footer;

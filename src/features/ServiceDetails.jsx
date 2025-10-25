@@ -7,7 +7,6 @@ import { Box, Button } from '@mui/material';
 export default function ServiceDetails() {
   const { category } = useParams();
   const [services, setServices] = useState([]);
-  const [cart, setCart] = useState([]);
 
   const addToCart = (item) => {
     const userEmail = localStorage.getItem('userEmail') || 'guest@example.com';
@@ -24,7 +23,6 @@ export default function ServiceDetails() {
     const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
     const updatedCart = [...existingCart, itemWithMeta];
 
-    setCart(updatedCart);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
     window.dispatchEvent(new Event('cartUpdated'));
 
@@ -32,21 +30,11 @@ export default function ServiceDetails() {
   };
 
   useEffect(() => {
-    const savedCart = getCart();
-    if (savedCart) {
-      try {
-        setCart(JSON.parse(savedCart));
-      } catch {
-        setCart([]);
-      }
-    }
-  }, []);
-
-  useEffect(() => {
     const fetchData = async () => {
       const all = await getServices();
       const selected = all.find(
-        (item) => item.category === decodeURIComponent(category)
+        (item) =>
+          item.category === decodeURIComponent(category?.replaceAll('-', ' '))
       );
       if (selected) setServices(selected.services);
     };
@@ -54,7 +42,13 @@ export default function ServiceDetails() {
   }, [category]);
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div
+      style={{
+        padding: '20px',
+        marginTop: '20px',
+        borderTop: '1px solid #345',
+      }}
+    >
       <h2>{category}</h2>
 
       {services.map((s, idx) => (
@@ -71,8 +65,8 @@ export default function ServiceDetails() {
           }}
         >
           <div>
-            <h4>{s.name}</h4>
-            <p>${s.price}</p>
+            <strong>{s.name}</strong>
+            <small>${s.price}</small>
           </div>
           <Button
             variant="contained"
@@ -83,10 +77,6 @@ export default function ServiceDetails() {
           </Button>
         </Box>
       ))}
-
-      <div style={{ marginTop: '20px' }}>
-        <strong>Items in cart:</strong> {cart.length}
-      </div>
     </div>
   );
 }
