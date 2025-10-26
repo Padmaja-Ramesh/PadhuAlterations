@@ -10,10 +10,10 @@ It provides a professional, responsive interface where users can explore categor
 Padhu’s Alteration Service brings a traditional tailoring business into the digital world.
 Users can:
 
-* Browse alteration categories (e.g., Pants, Shirts, Skirts, Leather, Custom, etc.)
-* Add or remove services from a shopping cart
-* Register and log in securely
-* Submit alteration requests via Airtable API integration
+- Browse alteration categories (e.g., Pants, Shirts, Skirts, Leather, Custom, etc.)
+- Add or remove services from a shopping cart
+- Register and log in securely
+- Submit alteration requests via Airtable API integration
 
 The app is lightweight, easy to maintain, and ideal for small tailoring or alteration businesses wanting an online presence.
 
@@ -23,24 +23,23 @@ The app is lightweight, easy to maintain, and ideal for small tailoring or alter
 
 **Frontend:**
 
-* React.js
-* React Router
-* Material UI (MUI)
+- React.js
+- React Router
+- Material UI (MUI)
 
 **Backend / Database:**
 
-* Hosted Airtable base for users and service details
-
+- Hosted Airtable base for users and service details
 
 ---
 
 ## 📦 Added Dependencies
 
-| Dependency                          | Purpose                                     | 
-| ----------------------------------- | ------------------------------------------- | 
-| `react-router-dom`                  | Handles routing between pages               | 
-| `@mui/material`                     | UI component library for responsive styling | 
-| `dotenv`                            | Environment variable management             | 
+| Dependency         | Purpose                                     |
+| ------------------ | ------------------------------------------- |
+| `react-router-dom` | Handles routing between pages               |
+| `@mui/material`    | UI component library for responsive styling |
+| `dotenv`           | Environment variable management             |
 
 ---
 
@@ -48,9 +47,9 @@ The app is lightweight, easy to maintain, and ideal for small tailoring or alter
 
 ### Prerequisites
 
-* Node.js (v16+ recommended)
-* npm or yarn
-* Airtable account and base setup
+- Node.js (v16+ recommended)
+- npm or yarn
+- Airtable account and base setup
 
 ### 1. Clone the repository
 
@@ -72,9 +71,47 @@ In the root of the project, create a `.env` file with the following:
 ```bash
 VITE_AIRTABLE_API_KEY=your_airtable_api_key
 VITE_AIRTABLE_BASE_ID=your_base_id
-VITE_AIRTABLE_TABLE_NAME=users
-VITE_AIRTABLE_SERVICE_TABLE=services
+VITE_TABLE_NAME_1=users
+VITE_TABLE_NAME_2=alterationservices
+VITE_TABLE_NAME_3=carts
 ```
+
+### Airtable Base Structure
+
+Below is a recommended structure for your Airtable base to match the app’s functionality.
+
+1. Users Table (users)
+   | ------------------ | ------------------------------------------- |
+   | Field Name | Type |
+   | ------------------ | ------------------------------------------- |
+   | id | Single Line Text. |
+   | name | Single Line Text. |
+   | email | Email. |
+   | password | Single Line Text |
+   | reset_token | Single Line Text |
+   | ------------------ | ------------------------------------------- |
+
+2. Alteration Services Table (alterationservices)
+
+   | ------------------ | -----------------------------------------------------------------------|
+   | Field Name | Type |
+   | ------------------ | -----------------------------------------------------------------------|
+   | serviceName | Single Line Text. |
+   | category | Single Select Category |
+   | | (Pant alterations, Skirts alterations, Shirts alteration, etc.) |
+   | price | Email. |
+   | ------------------ | -----------------------------------------------------------------------|
+
+3. Carts Table (carts)
+   | ------------------ | ------------------------------------------- |
+   | Field Name | Type |
+   | ------------------ | ------------------------------------------- |
+   | userEmail | Email |
+   | name | Single Line Text. |
+   | price | Currency |
+   | catergory | Single Line Text |
+   | addedAt | Date LocalFormat(mm/dd/yyyy) |
+   | ------------------ | ------------------------------------------- |
 
 ### 4. Start the development server
 
@@ -99,15 +136,15 @@ The app communicates directly with Airtable’s REST API for CRUD operations on 
 padhu-alteration-service/
 │
 ├── src/
-│   ├── assets/       
-│   ├── features/ 
-│   ├── pages/             
-│   ├── shared/ 
-│   ├── utils/            
-│   ├── App.jsx          
-│   └── main.jsx          
+│   ├── assets/
+│   ├── features/
+│   ├── pages/
+│   ├── shared/
+│   ├── utils/
+│   ├── App.jsx
+│   └── main.jsx
 │
-├── .env                  
+├── .env
 ├── package.json
 ├── README.md
 └── vite.config.js
@@ -117,11 +154,11 @@ padhu-alteration-service/
 
 ## 🚀 Future Enhancements
 
-* Add appointment booking calendar
-* Include image uploads for alteration references
-* Enable payment processing (Stripe integration)
-* Add admin dashboard for managing service requests
-* Email notifications for bookings and updates
+- Add appointment booking calendar
+- Include image uploads for alteration references
+- Enable payment processing (Stripe integration)
+- Add admin dashboard for managing service requests
+- Email notifications for bookings and updates
 
 ---
 
@@ -135,4 +172,3 @@ Full Stack Developer | Software Engineer
 ---
 
 Would you like me to include an example **Airtable base structure** (i.e., fields for `users` and `services` tables) at the end of the README? It helps others set up their Airtable quickly.
-
