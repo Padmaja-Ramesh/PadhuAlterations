@@ -43,7 +43,7 @@ The app is lightweight, easy to maintain, and ideal for small tailoring or alter
 
 ---
 
-##  Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 
@@ -81,35 +81,33 @@ VITE_TABLE_NAME_3=carts
 Below is a recommended structure for your Airtable base to match the app’s functionality.
 
 1. Users Table (users)
-   
-   | Field Name         |             Type                            |
-   | ------------------ | ------------------------------------------- |
-   | id                 |    Single Line Text.                        |
-   | name               |    Single Line Text.                        |
-   | email              |    Email.                                   |
-   | password           |    Single Line Text                         |
-   | reset_token        |    Single Line Text                         |
 
+   | Field Name  | Type              |
+   | ----------- | ----------------- |
+   | id          | Single Line Text. |
+   | name        | Single Line Text. |
+   | email       | Email.            |
+   | password    | Single Line Text  |
+   | reset_token | Single Line Text  |
 
-3. Alteration Services Table (alterationservices)
+2. Alteration Services Table (alterationservices)
 
+   | Field Name  | Type                                                            |
+   | ----------- | --------------------------------------------------------------- |
+   | serviceName | Single Line Text.                                               |
+   | category    | Single Select Category                                          |
+   |             | (Pant alterations, Skirts alterations, Shirts alteration, etc.) |
+   | price       | Email.                                                          |
 
-   | Field Name         |                   Type                                                 |
-   | ------------------ | -----------------------------------------------------------------------|
-   | serviceName        |          Single Line Text.                                             |
-   | category           |          Single Select Category                                        |
-   |                    | (Pant alterations, Skirts alterations, Shirts alteration, etc.)        |
-   | price              |          Email.                                                        |
+3. Carts Table (carts)
 
-4. Carts Table (carts)
-
-   | Field Name         |                Type                         |
-   | ------------------ | ------------------------------------------- |
-   | userEmail          |          Email                              |
-   | name               |          Single Line Text.                  |
-   | price              |          Currency                           |
-   | catergory          |          Single Line Text                   |
-   | addedAt            |          Date LocalFormat(mm/dd/yyyy)       |
+   | Field Name | Type                         |
+   | ---------- | ---------------------------- |
+   | userEmail  | Email                        |
+   | name       | Single Line Text.            |
+   | price      | Currency                     |
+   | catergory  | Single Line Text             |
+   | addedAt    | Date LocalFormat(mm/dd/yyyy) |
 
 ### 4. Start the development server
 
@@ -124,11 +122,12 @@ App runs locally on:
 
 ## API Connection Details
 
-The app communicates directly with Airtable’s REST API for CRUD operations on your `users`, `services`, `carts` and `enquires` tables.
+The app communicates directly with Airtable’s REST API for CRUD operations on your `users`, `services` and `carts` tables.
+sample data of services found in asserts/alterationservices.csv
 
 ---
 
-##  Project Structure
+## Project Structure
 
 ```
 padhu-alteration-service/
@@ -160,10 +159,9 @@ padhu-alteration-service/
 
 ---
 
-##  Author
+## Author
 
 **Padmaja Ramesh**
 Full Stack Developer | Software Engineer
 📧 [[padmajaramesh1205@gmail.com](padmajaramesh1205@gmail.com)]
 🔗 [LinkedIn Profile](www.linkedin.com/in/padmaja-ramesh)
-
