@@ -1,11 +1,11 @@
-# 🧵 Padhu's Alteration Service
+# Padhu's Alteration Service
 
 **Padhu’s Alteration Service** is a modern web application designed to help customers easily browse, book, and manage clothing alteration services online.
 It provides a professional, responsive interface where users can explore categories, request services, and manage their cart — all backed by a simple Airtable-powered backend.
 
 ---
 
-## 📖 Project Description
+## Project Description
 
 Padhu’s Alteration Service brings a traditional tailoring business into the digital world.
 Users can:
@@ -19,7 +19,7 @@ The app is lightweight, easy to maintain, and ideal for small tailoring or alter
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 **Frontend:**
 
@@ -33,7 +33,7 @@ The app is lightweight, easy to maintain, and ideal for small tailoring or alter
 
 ---
 
-## 📦 Added Dependencies
+## Added Dependencies
 
 | Dependency         | Purpose                                     |
 | ------------------ | ------------------------------------------- |
@@ -43,7 +43,7 @@ The app is lightweight, easy to maintain, and ideal for small tailoring or alter
 
 ---
 
-## 🛠️ Installation & Setup
+##  Installation & Setup
 
 ### Prerequisites
 
@@ -81,37 +81,35 @@ VITE_TABLE_NAME_3=carts
 Below is a recommended structure for your Airtable base to match the app’s functionality.
 
 1. Users Table (users)
+   
+   | Field Name         |             Type                            |
    | ------------------ | ------------------------------------------- |
-   | Field Name | Type |
-   | ------------------ | ------------------------------------------- |
-   | id | Single Line Text. |
-   | name | Single Line Text. |
-   | email | Email. |
-   | password | Single Line Text |
-   | reset_token | Single Line Text |
-   | ------------------ | ------------------------------------------- |
+   | id                 |    Single Line Text.                        |
+   | name               |    Single Line Text.                        |
+   | email              |    Email.                                   |
+   | password           |    Single Line Text                         |
+   | reset_token        |    Single Line Text                         |
 
-2. Alteration Services Table (alterationservices)
 
-   | ------------------ | -----------------------------------------------------------------------|
-   | Field Name | Type |
-   | ------------------ | -----------------------------------------------------------------------|
-   | serviceName | Single Line Text. |
-   | category | Single Select Category |
-   | | (Pant alterations, Skirts alterations, Shirts alteration, etc.) |
-   | price | Email. |
-   | ------------------ | -----------------------------------------------------------------------|
+3. Alteration Services Table (alterationservices)
 
-3. Carts Table (carts)
+
+   | Field Name         |                   Type                                                 |
+   | ------------------ | -----------------------------------------------------------------------|
+   | serviceName        |          Single Line Text.                                             |
+   | category           |          Single Select Category                                        |
+   |                    | (Pant alterations, Skirts alterations, Shirts alteration, etc.)        |
+   | price              |          Email.                                                        |
+
+4. Carts Table (carts)
+
+   | Field Name         |                Type                         |
    | ------------------ | ------------------------------------------- |
-   | Field Name | Type |
-   | ------------------ | ------------------------------------------- |
-   | userEmail | Email |
-   | name | Single Line Text. |
-   | price | Currency |
-   | catergory | Single Line Text |
-   | addedAt | Date LocalFormat(mm/dd/yyyy) |
-   | ------------------ | ------------------------------------------- |
+   | userEmail          |          Email                              |
+   | name               |          Single Line Text.                  |
+   | price              |          Currency                           |
+   | catergory          |          Single Line Text                   |
+   | addedAt            |          Date LocalFormat(mm/dd/yyyy)       |
 
 ### 4. Start the development server
 
@@ -124,13 +122,13 @@ App runs locally on:
 
 ---
 
-## 🌐 API Connection Details
+## API Connection Details
 
 The app communicates directly with Airtable’s REST API for CRUD operations on your `users`, `services`, `carts` and `enquires` tables.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 padhu-alteration-service/
@@ -152,7 +150,7 @@ padhu-alteration-service/
 
 ---
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 - Add appointment booking calendar
 - Include image uploads for alteration references
@@ -162,13 +160,10 @@ padhu-alteration-service/
 
 ---
 
-## 👩‍💻 Author
+##  Author
 
 **Padmaja Ramesh**
 Full Stack Developer | Software Engineer
 📧 [[padmajaramesh1205@example.com](padmajaramesh1205@example.com)]
 🔗 [LinkedIn Profile](www.linkedin.com/in/padmaja-ramesh)
 
----
-
-Would you like me to include an example **Airtable base structure** (i.e., fields for `users` and `services` tables) at the end of the README? It helps others set up their Airtable quickly.
