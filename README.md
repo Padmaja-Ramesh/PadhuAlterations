@@ -164,6 +164,6 @@ padhu-alteration-service/
 
 **Padmaja Ramesh**
 Full Stack Developer | Software Engineer
-📧 [[padmajaramesh1205@example.com](padmajaramesh1205@example.com)]
+📧 [[padmajaramesh1205@gmail.com](padmajaramesh1205@gmail.com)]
 🔗 [LinkedIn Profile](www.linkedin.com/in/padmaja-ramesh)
 
